@@ -197,6 +197,8 @@ module Devise
           ldap_entry = nil
           match_count = 0
           @ldap.bind
+          response = @ldap.get_operation_result
+          DeviseLdapAuthenticatable::Logger.send("Search operation result: #{pp response}")
           result = @ldap.search(:filter => filter) 
           response = @ldap.get_operation_result
           DeviseLdapAuthenticatable::Logger.send("Search operation result: #{pp response}")
