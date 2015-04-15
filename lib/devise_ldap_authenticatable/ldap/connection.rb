@@ -40,7 +40,7 @@ module Devise
           DeviseLdapAuthenticatable::Logger.send("Binding as user")
           @ldap.auth ldap_config["ad_domain"] + '\\' + @login, @password
         end
-
+        DeviseLdapAuthenticatable::Logger.send("LDAP auth result: " + @ldap.get_operation_result)
       end
 
       def delete_param(param)
