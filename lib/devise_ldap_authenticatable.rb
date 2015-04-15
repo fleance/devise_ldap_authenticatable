@@ -27,8 +27,8 @@ module Devise
   mattr_accessor :ldap_check_group_membership
   @@ldap_check_group_membership = false
   
-  mattr_accessor :ldap_check_attributes
-  @@ldap_check_role_attribute = false
+  mattr_accessor :ldap_user_to_bind
+  @@ldap_user_to_bind = :none
   
   mattr_accessor :ldap_use_admin_to_bind
   @@ldap_use_admin_to_bind = false
