@@ -83,7 +83,7 @@ module Devise
 
       def authenticate!
         return false unless (@password.present? || @allow_unauthenticated_bind)
-        @ldap.auth(dn, @password)
+        #@ldap.auth(dn, @password)
         @ldap.bind
       end
 
