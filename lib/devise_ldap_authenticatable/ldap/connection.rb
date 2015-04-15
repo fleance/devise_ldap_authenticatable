@@ -53,6 +53,7 @@ module Devise
 
       def dn
         @dn ||= begin
+        return @ldap.search(:filter => Net::LDAP::Filter.eq(@attribute.to_s, @login.to_s))
         return @login
           DeviseLdapAuthenticatable::Logger.send("LDAP dn lookup: #{@attribute}=#{@login}")
           ldap_entry = search_for_login
