@@ -199,7 +199,7 @@ module Devise
           @ldap.bind
           response = @ldap.get_operation_result
           DeviseLdapAuthenticatable::Logger.send("Search operation result: #{pp response}")
-          result = @ldap.search(:filter => filter) 
+          DeviseLdapAuthenticatable::Logger.send(pp @ldap.search(:filter => Net::LDAP::Filter.eq(@attribute.to_s, @login.to_s)) 
           response = @ldap.get_operation_result
           DeviseLdapAuthenticatable::Logger.send("Search operation result: #{pp response}")
           result.each do |entry| 
